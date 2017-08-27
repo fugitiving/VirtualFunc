@@ -1,0 +1,69 @@
+//虚函数的应用
+#include<iostream>
+using namespace std;
+
+struct SUser
+{
+	int nNumb;
+	char sName[20];
+	char sSex[4];
+	int nType;
+	void Input();
+	virtual void Print()
+	{
+		cout << "SUser" << endl;
+	}
+};
+
+struct SArt :SUser
+{
+	float fHist;
+	float fChin;
+	float fEngl;
+	float fGeog;
+	void Input();
+	void Print()
+	{
+		cout << "SArt" << endl;
+	}
+};
+struct SScn :SUser
+{
+	float fMath;
+	float fPhys;
+	float fChem;
+	void Input();
+	void Print()
+	{
+		cout << "SScn" << endl;
+	}
+};
+
+int main()
+{
+/*	SScn s;
+	SArt a;
+	SUser u;
+	//s = u;
+	//u = s;
+	
+	SUser *p = &s;
+	p = &a;*/
+
+	SUser u;
+	u.Print();
+
+	SScn s;
+	SArt a;
+	s.Print();
+
+	SUser *p = &u;
+	p->Print();
+
+	p = &s;
+	p->Print();
+	
+	p = &a;
+	p->Print();
+
+}
